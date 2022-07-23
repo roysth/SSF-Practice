@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My E-Commerce Store</title>
+</head>
+<!--bind all the info from form & unordered list to cartinput-->
+<body th:object="${cartinput}">
+    <h>My E-Commerce Store</h>
+    <form
+        action="#"
+        th:action="@{/shoppingcart}"
+        method="post"
+    >
+    <p>
+        Username:
+        <input type="text" th:field="*{username}" />
+    </p>
+    <br>
+    <p>
+        Item:
+        <input type="text" th:field="*{item}" />
+    </p>
+    <br>
+    <p>
+        Price:
+        <input type="text" th:field="*{price}" />
+    </p>
+    <br>
+    <p>
+        <input type="submit" value="Save"/>
+    </p>
+    </form>
+
+    <br>
+    <br>
+    <h>Your Shopping Cart Items:</h>
+    <!--TODO: HOW TO DISPLAY THE LIST HERE-->
+    <ul>
+       <li th:each="item : *{cartList}" th:text="${item}"></li>
+    
+    </ul>
+</body>
+</html>
